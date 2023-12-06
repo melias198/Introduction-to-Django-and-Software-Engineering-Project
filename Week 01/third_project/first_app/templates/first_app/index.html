@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside Django Template</title>
+</head>
+<body>
+
+
+    <h1>This is Django Templates Inside App</h1>
+    <a href='https://phitron.io'>Phitron</a>
+    <h1>My Name is : {{name}}</h1>
+    {% if age > 18 %}
+    <p>You're Elligible For Voter.</p>
+    {% else %}
+    <p>You're Not Elligible For Voter.</p>
+    {% endif %}
+
+    {% if marks >= 80 %}
+    <p>You're Got GPA 5</p>
+    {% elif marks < 80 and marks >= 70%}
+    <p>You're Got GPA 4</p>
+    {% elif marks < 70 and marks >= 60%}
+    <p>You're Got GPA 3.5</p>
+    {% elif marks < 60 and marks >= 50%}
+    <p>You're Got GPA 3</p>
+    {% elif marks < 50 and marks >= 40%}
+    <p>You're Got GPA 2</p>
+    {% else %}
+    <p>You're Failed</p>
+    {% endif %}
+
+    <table border="1" width=500> 
+        <tr>
+            <th>ID</th>
+            <th>Courses</th>
+            <th>Teacher</th>
+        </tr>
+
+        {% for i in courses %}
+        <tr>
+            <td>{{i.id}}</id>
+            <td>{{i.course}}</id>
+            <td>{{i.teacher}}</id>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Add Value -->
+    <h1>{{marks | add:"10"}}</h1>
+
+    <!-- Divisiblity Check -->
+    <h1>{{marks | divisibleby:"10"}}</h1>
+
+    <!-- Length -->
+    <h1>{{name | length}}</h1>
+
+    <!-- Word Count -->
+    <h1>{{blog | wordcount}}</h1>
+
+    <!-- Truncate Words -->
+    <h1>{{blog| truncatewords:5}}</h1>
+
+    <!-- Truncate Chars -->
+    <h1>{{blog | truncatechars:20}}</h1>
+
+    <!-- Make List -->
+    <h1>{{name | make_list}}</h1>
+
+    <!-- Upper Case -->
+    <h1>{{name | upper }}</h1>
+
+    <!-- Lower Case -->
+    <h1>{{name | lower }}</h1>
+
+    <!-- Join -->
+    <h1>{{lst | join:","}}</h1>
+
+</body>
+</html>

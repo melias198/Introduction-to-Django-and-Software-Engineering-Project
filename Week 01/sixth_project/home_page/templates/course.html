@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% load first_template %}
+
+{% block title %} Course {% endblock %}
+
+{% block h1 %} This is course page. 
+
+<h1>Name: {{author}}</h1>
+<h1>Name: {{author|my_template:'change'}}</h1>
+
+{% show_info %}
+
+{% endblock %}

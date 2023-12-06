@@ -1,0 +1,23 @@
+{% load first_template %}
+
+
+<table class="table table-hover table-bordered border-primary table-success table-striped-columns">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Course</th>
+        <th scope="col">Teacher</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for i in courses %}
+
+  <tr>
+    <td>{{i.id}}</td>
+    <td>{{i.course}}</td>
+    <td>{{i.teacher}}</td>
+  </tr>
+{% endfor %}
+
+    </tbody>
+</table>
