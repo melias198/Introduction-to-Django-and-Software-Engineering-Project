@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="width: 50%; height: 500px; margin:auto" class="pt-5">
+<h3>Movie Rating Form</h3>
+
+<form method = 'post'>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleInputName" aria-describedby="namelHelp" name="user_name">
+      </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputName1" class="form-label">Movie Name</label>
+        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="namelHelp" name="movie_name">
+    </div>
+
+    <select class="form-select" aria-label="Default select example" name="rating">
+        <option selected>Give Ratings</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary mt-5">Submit</button>
+
+    <h3>Name: {{name}}</h3>
+    <h3>Enail: {{email}}</h3>
+    <h3>Movie Name: {{movie_name}}</h3>
+    <h3>Ratings: {{rating}}</h3>
+
+  </form>
+
+
+</div>
+{% endblock %}

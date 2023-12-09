@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="width: 50%; height: 500px; margin:auto" class="pt-5">
+
+<form method = 'post'>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" class="form-control" id="exampleInputName" aria-describedby="namelHelp" name="user_name">
+      </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email Address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="user_email">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="user_pass">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <h3>Name: {{name}}</h3>
+    <h3>Email: {{email}}</h3>
+    <h3>Password: {{password}}</h3>
+
+  </form>
+</div>
+
+{% endblock %}
