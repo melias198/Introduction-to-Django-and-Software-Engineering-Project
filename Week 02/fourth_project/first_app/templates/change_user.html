@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+
+{% comment %} <div style="width: 50%; margin: auto; text-align: center;"><h1>Sign-Up Form</h1></div> {% endcomment %}
+    
+
+<form method="post" style="width: 50%; margin: auto;" novalidate>
+  {% csrf_token %}
+  <!-- {{form|crispy}} -->
+  
+  {% for fm in form %}
+  {{fm.label_tag}}
+  {{fm}}
+  {{fm.errors|striptags}}
+  <br/>
+  {% endfor %} 
+  
+  <br/>
+  <button class="btn btn-primary" type="submit" >Change</button>
+</form>
+
+{% if messages %}
+  {% for m in messages %}
+    <div style="width: 50%; margin: auto; text-align: center;"><h6>{{m}}</h6></div>
+  {% endfor %}
+{% endif %}
+
+
+{% endblock %}
