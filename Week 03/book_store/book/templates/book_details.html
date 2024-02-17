@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="width: 90%; margin: auto;">
+  <h1>Book Details</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Book ID</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Page</th>
+      <th scope="col">Price</th>
+      <th scope="col">First Publication</th>
+      <th scope="col">Last Publication</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{book.id}}</td>
+      <td>{{book.name}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.page}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.first_pub}}</td>
+      <td>{{book.last_pub}}</td>
+      <td><a href="{% url 'edit_book' pk=book.id %}" class="btn btn-warning btn-sm">Edit</a> <a href="{% url 'delete_book' pk=book.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

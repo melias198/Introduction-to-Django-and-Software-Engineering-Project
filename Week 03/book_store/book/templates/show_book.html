@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="width: 90%; margin: auto;">
+  <h1>Book List</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Book ID</th>
+      <th scope="col">Book Name</th>
+      {% comment %} <th scope="col">Author Name</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Page</th>
+      <th scope="col">Price</th>
+      <th scope="col">First Publication</th>
+      <th scope="col">Last Publication</th>
+      <th scope="col">Action</th> {% endcomment %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in data %}
+    <tr>
+      <td>{{book.id}}</td>
+      <td><a href="{% url 'book_details' book.id %}">{{book.name}}</a></td>
+      {% comment %} <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.page}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.first_pub}}</td>
+      <td>{{book.last_pub}}</td>
+      <td><a href="{% url 'edit_book' id=book.id %}" class="btn btn-warning btn-sm">Edit</a> <a href="{% url 'delete_book' id=book.id %}" class="btn btn-danger btn-sm">Delete</a></td> {% endcomment %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}
