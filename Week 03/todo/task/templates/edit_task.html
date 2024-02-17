@@ -1,0 +1,20 @@
+{% extends "home.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="center-column">
+
+    <h1 style="text-align: center;">Edit Task</h1>
+
+	<form method="POST">
+		{% csrf_token %}
+		{{form|crispy}}
+        
+		<div class="text-center">
+            <button class="btn btn-info" type="submit">Change</button>
+            <a href="{% url 'show_tasks' %}" class="btn btn-warning" type="submit">Back</a>
+        </div>
+	</form>
+
+</div>
+{% endblock %}

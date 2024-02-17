@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+
+{% block body %}
+
+<div style="width: 50%; margin:auto; border: 1px solid #000; background-color: #6BA3E8;; text-align: center; padding: 10px; border-radius: 10px;">
+    <a href="{% url 'home' %}" class="btn btn-warning">Home</a>
+    <a href="{% url 'store_task' %}" class="btn btn-info">Add Task</a>
+    <a href="{% url 'view_complete' %}" class="btn btn-success">Completed Tasks</a>
+</div>
+<br/>
+
+<h1 style="width:50%; margin:auto; text-align: center; border: 1px solid #000; background-color: #6495ED; padding: 10px; color: white;">Tasks</h1>
+
+{% if tasks %}
+
+<table class="table table-bordered" style="width: 50%; margin: auto; text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for task in tasks %}
+        {% if not task.is_completed %}
+
+        <tr>
+            <td>{{task.taskTitle}}</td>
+            <td>{{task.taskDescription}}</td>
+            <td>Incomplete</td>
+            <td><a href="{% url 'delete_task' id=task.id %}" class="btn btn-danger btn-sm">Delete</a> <a href="{% url 'edit_task' id=task.id %}" class="btn btn-primary btn-sm">Edit</a> <a href="{% url 'complete_task' id=task.id %}" class="btn btn-success btn-sm">Complete</a></td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+     
+    </tbody>
+  </table>
+
+  {% else%}
+  <h3 style="width: 50%; margin: auto; text-align: center; padding-top: 10px;">No Tasks Available</h3>
+  {% endif %}
+
+{% endblock %}

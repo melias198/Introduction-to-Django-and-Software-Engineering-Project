@@ -1,0 +1,45 @@
+{% extends "home.html" %}
+
+{% block body %}
+
+<div style="width: 50%; margin:auto; border: 1px solid #000; background-color: #6BA3E8;; text-align: center; padding: 10px; border-radius: 10px;">
+    <a href="{% url 'home' %}" class="btn btn-success">Home</a>
+    <a href="{% url 'store_task' %}" class="btn btn-info">Add Task</a>
+    <a href="{% url 'show_tasks' %}" class="btn btn-warning">Show Tasks</a>
+</div>
+<br/>
+
+<h1 style="width:50%; margin:auto; text-align: center; border: 1px solid #000; background-color: #6BA3E8; padding: 10px; color: white;">Completed Tasks</h1>
+
+{% if tasks %}
+
+<table class="table table-bordered" style="width: 50%; margin: auto; text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for task in tasks %}
+        {% if task.is_completed %}
+
+        <tr>
+            <td>{{task.taskTitle}}</td>
+            <td>{{task.taskDescription}}</td>
+            <td>Completed</td>
+        </tr>
+
+        {% endif %}
+        {% endfor %}
+     
+    </tbody>
+  </table>
+
+  {% else%}
+  <h3 style="width: 50%; margin: auto; text-align: center; padding-top: 10px;">No Tasks Available</h3>
+  {% endif %}
+
+{% endblock %}
