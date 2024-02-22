@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'first_app',
     'rest_framework.authtoken',
     'user_app',
+    'django_filters',
     
 ]
 
